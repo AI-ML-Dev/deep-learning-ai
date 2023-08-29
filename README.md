@@ -1,7 +1,30 @@
-# GitHub Codespaces ♥️ Jupyter Notebooks
+# DeepLearning.AI Short Courses
 
-Welcome to your shiny new codespace! We've got everything fired up and running for you to explore Python and Jupyter notebooks.
+Explore the series of [short courses](hhttps://learn.deeplearning.ai/) from DeepLearning.AI - but using the GitHub Codespaces + Jupyter Notebooks environment for the hands-on labs.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with what you're seeing right now - where you go from here is up to you!
+## Short Courses (In Listed Order)
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+ - [ ] [ChatGPT Prompt Engineering For Developers](https://learn.deeplearning.ai/chatgpt-prompt-eng)
+ - [ ] [LangChain for LLM Application Development](https://learn.deeplearning.ai/langchain)
+ - [ ] [How Diffusion Models Work](https://learn.deeplearning.ai/diffusion-models)
+ - [ ] [LangChain Chat With Your Data](https://learn.deeplearning.ai/langchain-chat-with-your-data)
+ - [ ] [Building Generative AI Applications with Gradio](https://learn.deeplearning.ai/huggingface-gradio)
+ - [ ] [Evaluating and Debugging Generative AI](https://learn.deeplearning.ai/evaluating-debugging-generative-ai)
+ - [ ] [Large Language Models with Semantic Search](https://learn.deeplearning.ai/large-language-models-semantic-search/lesson/1/introduction)
+ - [ ] [Finetuning Large Language Models](https://learn.deeplearning.ai/finetuning-large-language-models)
+
+## Long Courses
+ - [ ] [Fundamentals of generative AI for real-world apps (with AWS)](https://www.deeplearning.ai/courses/generative-ai-with-llms/)
+
+
+## OpenAI References
+ - [OpenAI Platform](https://platform.openai.com/)
+    - OpenAI - [API Reference](https://platform.openai.com/docs/api-reference) (Python & Node libraries)
+    - Open AI - [Model index](https://platform.openai.com/docs/models/overview)
+    - GPTs - [Guide](https://platform.openai.com/docs/guides/gpt) and [Best Practices](https://platform.openai.com/docs/guides/gpt-best-practices)
+    - Embeddings [Guide](https://platform.openai.com/docs/guides/embeddings)
+    - Tokens - [Tokenizer Tool]() 
+ - [ChatGPT](https://chat.openai.com/)
+ - [Dall-E](https://labs.openai.com/)
+ - [Playground](https://platform.openai.com/playground) - Interactive completion for prompts
+ - [Developer Forum](https://community.openai.com/) - Community Q&A
