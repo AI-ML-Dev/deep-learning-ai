@@ -1,8 +1,15 @@
 # DeepLearning.AI Short Courses
 
-Explore the series of [short courses](hhttps://learn.deeplearning.ai/) from DeepLearning.AI - but using the GitHub Codespaces + Jupyter Notebooks environment for the hands-on labs.
+## Learning Objectives
 
-## Short Courses 
+Complete the series of [courses from DeepLearning.AI ](https://learn.deeplearning.ai/) to
+ - Get familiar with core concepts, tools & frameworks
+ - Validate usage of Github Codespaces - for completing all exercises
+ - Skill up on using Jupyter notebooks in Codespaces - for JS & Python
+ - Explore use of GitHub Copilot Chat - for creating explainers & exercises
+ - Apply insights to a _hack_ project - to validate learning in practice
+
+## Short Courses
 
  1. [ ] [ChatGPT Prompt Engineering For Developers](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) | _1 hr_
  1. [ ] [Building Systems with the ChatGPT API](https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/) | _1 hr_
