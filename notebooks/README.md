@@ -1,5 +1,13 @@
 # Exploring Generative AI with Codespaces + Notebooks
 
+## GitHub Codespaces Usage
+
+Things to think about:
+ - [Using Jupyter Notebooks](https://docs.github.com/en/codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning) on Codespaces
+ - [Managing Encrypted Secrets](https://docs.github.com/en/enterprise-cloud@latest/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces ) - e.g., to set API KEY 
+ - [Default env vars](https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace) - case sensitive by default
+ - [Persist custom env vars & files](https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/persisting-environment-variables-and-temporary-files) - across Codespace runs.
+
 
 ## GitHub Copilot Usage
 
