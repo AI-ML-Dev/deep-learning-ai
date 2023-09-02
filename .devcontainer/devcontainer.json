@@ -17,5 +17,6 @@
         "ms-python.python"
       ]
     }
-  }
+  },
+  "forwardPorts": [9005]
 }

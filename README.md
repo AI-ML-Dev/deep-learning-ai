@@ -9,6 +9,8 @@ Complete the series of [courses from DeepLearning.AI ](https://learn.deeplearnin
  - Explore use of GitHub Copilot Chat - for creating explainers & exercises
  - Apply insights to a _hack_ project - to validate learning in practice
 
+Check out the [notebooks/README](./notebooks/README.md) for notes.
+
 ## Short Courses
 
  1. [ ] [ChatGPT Prompt Engineering For Developers](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) | _1 hr_
