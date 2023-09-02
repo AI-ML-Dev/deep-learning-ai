@@ -1,12 +1,18 @@
 {
   "name": "DeepLearning.AI",
+  
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+
   "hostRequirements": {
     "cpus": 4
   },
+
   "waitFor": "onCreateCommand",
+
   "updateContentCommand": "python3 -m pip install -r requirements.txt",
-  "postCreateCommand": "",
+
+  "postCreateCommand": "bash .devcontainer/post-create-updates.sh",
+
   "customizations": {
     "codespaces": {
       "openFiles": []
@@ -18,5 +24,6 @@
       ]
     }
   },
+
   "forwardPorts": [9005]
 }

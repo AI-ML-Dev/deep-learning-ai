@@ -4,13 +4,13 @@
 
 ## Using: GitHub Codespaces
 
-### 1. Update `requirements.txt` for Python development
+### 1. Update `requirements.txt` 
 
 The `codespaces-jupyter` template sets up the default environment for  Jupyter Notebooks. Read about [using Jupyter Notebooks](https://docs.github.com/en/codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning) on Codespaces for a quickstart.
 
 The `devcontainer.json` file configures the Codespaces environment - installing Python packages defined in [`requirements.txt`](./../requirements.txt) into the container at startup. _I'll keep these updated to reflect DeepLearn.ai course dependencies - note that changing these files requires a container rebuild_.
 
-### 2. Update `devcontainer.json` for other things
+### 2. Update `devcontainer.json` 
 
 Some things we need to think about:
  - [Default env vars](https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace) - for Codespace (that you can create, read, modify)
@@ -93,6 +93,92 @@ I've added the responses into the [generated notebook](./01-chatgpt-prompt-engin
 
 <br/>
 
-## Course-Specific Notebooks
+
+## Using: tslab for JS/TS Notebooks
+
+Jupyter Notebooks work on a two-process model based on a _kernel-client infrastructure_ as described in [this article](https://threathunterplaybook.com/tutorials/jupyter/introduction.html#how-do-jupyter-notebooks-work) with this illustration:
+
+![Jupyter Architecture](https://threathunterplaybook.com/_images/JUPYTER_ARCHITECTURE.png)
+
+Clients (Notebook editors or UI) connect to a Jupyter Server (webserver hosting Notebook file) backed by a [Jupyter Kernel](https://jupyter-client.readthedocs.io/en/latest/kernels.html#kernels) (Notebook runtime). Client requests are forwarded to the kernel for processing; resulting changes to Notebook are persisted to file (at server) and reflected (at client). 
+
+This means you can have the Notebook format work with other language kernels if they implement the right protocols - see available [Jupyter Kernel implementations](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels). I'm trying out [tslab](https://github.com/yunabe/tslab) which appears to be an _actively maintained_ kernel for JS/TS/Node.js.
+
+### 1. Installing tslab
+Just [follow these guidelines](https://github.com/yunabe/tslab#installing-tslab) to install the kernels in our existing Codespace.
+
+```bash
+# Check default Jupyter kernels
+$ jupyter kernelspec list
+Available kernels:
+  python3    /home/codespace/.local/share/jupyter/kernels/python3
+
+# Install tslab
+$ npm install -g tslab
+
+# Verify it was installed
+$ tslab install --version
+tslab 1.0.21
+
+# Register it with your Jupyter environment
+$ tslab install --python=python3
+
+Running python3 /usr/local/share/nvm/versions/node/v20.4.0/lib/node_modules/tslab/python/install.py --tslab=tslab
+Installing TypeScript kernel spec
+Installing JavaScript kernel spec
+
+# Check updated Jupyter kernels listing
+$ jupyter kernelspec list
+Available kernels:
+  jslab      /home/codespace/.local/share/jupyter/kernels/jslab
+  python3    /home/codespace/.local/share/jupyter/kernels/python3
+  tslab      /home/codespace/.local/share/jupyter/kernels/tslab
+
+# Success 🎉
+# You should now be able to select the JS or TS Kernel from your Jupyter Notebook.
+```
+
+### 2. Using tslab
+
+Using the `tslab` kernel to run JavaScript notebooks is now as simple as (a) creating a new notebook with JS markdown and code, and (b) selecting the JavaScript kernel as the default for execution.
+
+> 🤖 | I used GitHub Copilot to create a basic set of JavaScript exercises (with markdown descriptions and code snippets) for testing this. See the [Introduction to JavaScript](./learn-with-copilot/00-learn-javasscript-basics.ipynb) Notebook example.
+
+1. Once created, open it up in VS Code and you should see something like this:
+
+    ![JS Notebook opened in VS Code](./../assets/tslab-1-open-nb.png)
+
+2. Click "Select Kernel" to get this drop down.
+
+    ![Select Kernel dropdown](./../assets/tslab-2-select-kernel.png)
+
+3. Pick the Jupyter Kernel option
+    ![Pick the Jupyter Kernel option](./../assets/tslab-3-pick-jupyter.png)
+
+4. Select the JavaScript kernel you just installed
+    ![Select the JavaScript kernel you just installed](./../assets/tslab-4-pick-javascript.png)
+
+5. Run the JavaScript Notebook exercises!
+
+    ![Run the JavaScript Notebook](./../assets/tslab-5-run-notebook.png)
+
+Note that `tslab` provides a _Node.js_ (or server-side JavaScript runtime) environment and does not support exploring HTML/CSS/JS application development. It is however a perfect way to learn 
+ - the _syntax_ of JavaScript, TypeScript and Node.js
+ - write server-side code talking to third-party APIs (e.g., OpenAI)
+ - learn data structures and algorithms for competitive programming
+
+### 3. Automating tslab install
+
+The above steps were done in a running container. This means that any container rebuild will _remove_ these updates and will require you to reproduce them again. _How can we automate this on rebuild?_
+
+Because this has a dependency on Jupyter, we need these commands to run _after_ the `pip install` process described in `devcontainer.json`. We can do this by adding these into a bash script (see `.devcontainer/post-create-updates.sh`) - then specifying this be run as the `postCreateCommand` in devcontainer configuration.
+
+Let's try this by rebuilding the container. You should see something like this. 🎉 You now have JavaScript kernel support anytime you launch a new Codespace in this repo! (Note: Try validating this with both Docker Desktop and GitHub Codespaces environments!)
+
+![Let's try this by rebuilding the container](./../assets/tslab-6-rebuild-container.png)
+
+<br/>
+
+## Learning: Course-Specific Notebooks
 
 1. [ChatGPT Prompt Engineering for Developers](https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/1/introduction?_gl=1*m8i5g9*_ga*MTY2ODkwODkwOS4xNjgzMzk3NDY0*_ga_PZF1GBS1R1*MTY5MzU5MzcxNC45LjAuMTY5MzU5MzcxNC42MC4wLjA.) 👉🏽 See: [Notebooks](./chatgpt-prompt-engineering/).
